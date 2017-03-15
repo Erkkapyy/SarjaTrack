@@ -4,4 +4,4 @@
 USERNAME="pyykonee"
 # korvaa tämä haluamallasi kansion nimellä
 PROJECT_FOLDER="tsoha"
-# sovelluksesi tulee sijaitsemaan osoitteessa USERNAME.users.cs.helsinki.fi/PROJECT_FOLDER
+# sovelluksesi tulee sijaitsemaan osoitteessa USERNAME.users.cs.helsinki.fi/PROPROJECT_FOLDER
