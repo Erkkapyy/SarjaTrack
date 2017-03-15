@@ -7,4 +7,4 @@ Yleisiä linkkejä:
 
 ## Työn aihe
 
-Laita tähän aihekuvaus tai [linkki valmiiseen aiheeseen](http://advancedkittenry.github.io/suunnittelu_ja_tyoymparisto/aiheet/Pokemon-kanta.html) 
+Työn tarkoituksena on tarjota käyttäjälle mahdollisuus pitää kirjaa hänen katsomistaan sarjoista sekä jaksoista. Käyttäjä voi rekisteröityä, kirjautua sisään, valita valmiista ohjelmien listasta ohjelman ja merkata sen katsotuksi tai merkata kuinka monta jaksoa hän on kyseistä sarjaa katsonut. Käyttäjä näkee omat katsotut/katsottavat sarjat listana ja voi muokata niitä. 
