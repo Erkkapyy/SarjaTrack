@@ -1,0 +1,6 @@
+Johdanto
+Työn aiheena on eri sarjojen katselun seuraaminen.
+Järjestelmän tavoitteena on tarjota käyttäjälle tapa pitää listaa hänen katsomistaan sarjoista ja katsotuista jaksoista.
+Työ toteutetaan PHP:lla ja postgreSQL:llä laitoksen users-palvelimella.
+Käyttötapaukset
+
