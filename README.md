@@ -2,7 +2,7 @@
 
 Yleisiä linkkejä:
 
-* [Linkki sovellukseeni](https://www.cs.helsinki.fi)
+* [Linkki sovellukseeni](http://pyykonee.users.cs.helsinki.fi/tsoha/)
 * [Linkki dokumentaatiooni](https://github.com/Erkkapyy/SarjaTrack/blob/master/doc/dokumentaatio.pdf)
 
 ## Työn aihe
