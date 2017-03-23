@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+  <head>
+  <style>
+  h1 {
+    color: Crimson;
+    text-align: center;
+  }
+
+  p {
+    font-size: 20px;
+  }
+  </style>
+  </head>
+  <h1>Sarja Track</h1>
+
+  <h3>Kirjaudu sisään</h3>
+  <!-- Kaikki lomakkeen elementit form-tagin sisään -->
+  <form>
+    <!-- Tekstikenttä käyttäjätunnukselle -->
+    <div class="form-group">
+      <label>Käyttäjätunnus</label>
+      <input class="form-control" type="text">
+    </div>
+
+    <!-- Salasanakenttä salasanalle -->
+    <div class="form-group">
+      <label>Salasana</label>
+      <input class="form-control" type="password">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Kirjaudu sisään</button>
+  </form>
+
+  <p>
+  Ei käyttäjää?
+  </p>
+  <button type="submit" class="btn btn-default">Rekisteröidy</button>
+{% endblock %}

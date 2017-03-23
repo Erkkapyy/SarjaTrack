@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>Muokkaa sarjaa Hellsing Ultimate</h1>
+
+  <form>
+    <div class="form-group">
+      <label>Katsotut jaksot</label>
+      <input class="form-control" value="10/10" type="text">
+    </div>
+    <div class="form-group">
+      <label>Arvosana</label>
+      <input class="form-control" value="8.2/10" type="text">
+    </div>
+    <div class="form-group">
+      <label>Status</label>
+      <input class="form-control" value="Katsottu" type="text">
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Tallenna</button>
+    </div>
+  </form>
+{% endblock %}

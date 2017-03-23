@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>Käyttäjän Sarjat</h1>
+
+  <p>
+    <a href="#" class="btn btn-success">Lisää sarja</a>
+  </p>
+
+  <table class="table table-striped table-bordered">
+    <thead>
+      <tr>
+        <th>Nimi</th>
+        <th>Katsotut jaksot</th>
+        <th>Arvosana</th>
+        <th>Status</th>
+        <th>Lisäyspäivä</th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td><a href="#">Hellsing Ultimate</a></td>
+        <td>10/10</td>
+        <td>8.2/10</td>
+        <td><label class="label label-success">katsottu</label></td>
+        <td>23.3.2017</td>
+        <th><a class="btn btn-default btn-sm" href="#">Muokkaa</a></th>
+      </tr>
+      <tr>
+        <td><a href="#">Breaking Bad season 1</a></td>
+        <td>5/7</td>
+        <td>-/10</td>
+        <td><label class="label label-danger">kesken</label></td>
+        <td>20.3.2017</td>
+        <th><a class="btn btn-default btn-sm" href="#">Muokkaa</a></th>
+      </tr>
+    </tbody>
+  </table>
+{% endblock %}
