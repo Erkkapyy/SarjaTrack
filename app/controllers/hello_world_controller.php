@@ -8,13 +8,10 @@
     }
 
     public static function sandbox(){
-      // Testaa koodiasi täällä
-      View::make('helloworld.html');
-    }
-
-    public static function tuukkabox(){
-      // Testaa koodiasi täällä
-      echo 'Tuukka XDXD!';
+      $hellsing = Sarja::find('hellsing');
+      $sarjat = Sarja::all();
+      Kint::dump($sarjat);
+      Kint::dump($hellsing);
     }
 
     public static function login(){
