@@ -6,6 +6,7 @@ Yleisiä linkkejä:
 * [Linkki dokumentaatiooni](https://github.com/Erkkapyy/SarjaTrack/blob/master/doc/Dokumentaatio.pdf)
 * [Linkki käyttäjän listaussivuun](http://pyykonee.users.cs.helsinki.fi/tsoha/kayttajansarjat)
 * [Linkki sarjojen listaussivuun](http://pyykonee.users.cs.helsinki.fi/tsoha/sarjat)
+* [Linkki sarjan lisäämiseen (kaikkien sarjojen listaan)](http://pyykonee.users.cs.helsinki.fi/tsoha/sarjat/serie_add)
 * [Linkki esittelysivuun](http://pyykonee.users.cs.helsinki.fi/tsoha/show)
 * [Linkki muokkaussivuun](http://pyykonee.users.cs.helsinki.fi/tsoha/edit)
 
