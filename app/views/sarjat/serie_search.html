@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>Etsi sarja</h1>
+
+  <form method="post" action="{{base_path}}/sarjat">
+    <div class="form-group">
+      <label>Nimi</label>
+      <input name="name" class="form-control" type="text">
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Etsi</button>
+    </div>
+  </form>
+{% endblock %}

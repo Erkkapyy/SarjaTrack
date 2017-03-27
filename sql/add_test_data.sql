@@ -1,5 +1,9 @@
 INSERT INTO kayttaja (name, password) VALUES ('admin', 'admin');
 INSERT INTO kayttaja (name, password) VALUES ('pleb', 'pleb');
-INSERT INTO sarja (name, published, genre, episodes, description) VALUES ('hellsing ultimate', '1.2.2006', 'toiminta, jännitys, kauhu', 10, 'kuvaus');
+INSERT INTO sarja (name, published, genre, episodes, description) VALUES ('hellsing ultimate', '1.2.2006', 'toiminta, jännitys, kauhu', 10, 'Pahaa-aavistamattomien ihmisten keskuudessa elää, ja on aina elänyt vampyyrejä ja muita yliluonnollisia olentoja. Näiden hirviöiden tappamiseen on kuitenkin erikoistunut monia organisaatioita joista Englannin kuningattaren alaisuudessa toimiva Hellsing organisaatio on jo vuosisatoja ollut vastuussa normaali-ihmisten varjelusta näiltä pimeyden olennoilta. Hellsingin voimakkain ase onkin organisaation taltuttama ja orjuuttama vampyyri Alucard, joka käyttää voimiaan Hellsingin hyväksi tuhoten muita vampyyrejä. Samanaikaisesti kun Hellsing sotii Vatikaanin Iscariot organisaation kanssa jonka arkkipiispa tahtoo tuhota protestanttisen Englannin ja tämän väestön, jokin suurempi uhka paljastuu kun Hellsing tajuaa että jonkinlainen järjestö ohjailee suurentunutta määrää vampyyrien hyökkäyksissä ja on valmis syöksemään koko Englannin tuhoon vain Alucardin tuhoamisen tähden.');
+INSERT INTO sarja (name, published, genre, episodes, description) VALUES ('game of thrones season 1', '17.4.2011', 'fantasia', 10, 'kuvaus');
+INSERT INTO sarja (name, published, genre, episodes, description) VALUES ('breaking bad season 1', '20.1.2008', 'rikosdraama, trilleri', 10, 'kuvaus');
 INSERT INTO kayttajansarja (kayttaja_id, sarja_name, episodesseen, grade, finished, added) VALUES (1, 'hellsing ultimate', 10, 8.2, true, current_date);
+INSERT INTO kayttajansarja (kayttaja_id, sarja_name, episodesseen, grade, finished, added) VALUES (1, 'game of thrones season 1', 4, 0.0, false, current_date);
+INSERT INTO kayttajansarja (kayttaja_id, sarja_name, episodesseen, grade, finished, added) VALUES (2, 'breaking bad season 1', 10, 8.2, true, current_date);
 

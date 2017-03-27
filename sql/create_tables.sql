@@ -9,7 +9,7 @@ CREATE TABLE sarja(
   published varchar(50),
   genre varchar(50),
   episodes INT NOT NULL,
-  description varchar(600)
+  description varchar(1000)
 );
 
 CREATE TABLE kayttajansarja(

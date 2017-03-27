@@ -8,22 +8,16 @@
     }
 
     public static function sandbox(){
-      $hellsing = Sarja::find('hellsing');
+      $hellsing = Sarja::find('%hellsing%');
       $sarjat = Sarja::all();
+      $episodes = Sarja::findEpisodes(10);
+      Kint::dump($episodes);
       Kint::dump($sarjat);
       Kint::dump($hellsing);
     }
 
     public static function login(){
       View::make('suunnitelmat/login.html');
-    }
-
-    public static function serie_list(){
-      View::make('suunnitelmat/serie_list.html');
-    }
-
-    public static function serie_show(){
-      View::make('suunnitelmat/serie_show.html');
     }
 
     public static function serie_edit(){
