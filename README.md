@@ -4,7 +4,7 @@ Yleisiä linkkejä:
 
 * [Linkki sovellukseeni](http://pyykonee.users.cs.helsinki.fi/tsoha/)
 * [Linkki dokumentaatiooni](https://github.com/Erkkapyy/SarjaTrack/blob/master/doc/Dokumentaatio.pdf)
-* [Linkki listaussivuun](http://pyykonee.users.cs.helsinki.fi/tsoha/list)
+* [Linkki listaussivuun](http://pyykonee.users.cs.helsinki.fi/tsoha/kayttajansarjat)
 * [Linkki esittelysivuun](http://pyykonee.users.cs.helsinki.fi/tsoha/show)
 * [Linkki muokkaussivuun](http://pyykonee.users.cs.helsinki.fi/tsoha/edit)
 
