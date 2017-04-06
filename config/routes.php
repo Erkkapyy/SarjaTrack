@@ -12,8 +12,8 @@
     SarjaController::serie_details();
   });
 
-  $routes->get('/edit', function() {
-    HelloWorldController::serie_edit();
+  $routes->get('sarjat/:name/edit', function($name) {
+    SarjaController::edit($name);
   });
 
   $routes->get('/kayttajansarjat', function() {
@@ -29,7 +29,8 @@
   });
 
   $routes->get('/search/:name', function($name) {
-   SarjaController::serie_search($name);
+   $searched = '%' . $name . '%';
+   SarjaController::serie_search($searched);
   });
 
   $routes->post('/sarjat', function() {
@@ -39,5 +40,15 @@
   $routes->get('/sarjat/serie_add', function() {
     SarjaController::create();
   });
+  
+  $routes->post('/sarjat/:name/edit', function($name){
+  SarjaController::update($name);
+});
+
+$routes->post('/sarjat/:name/destroy', function($name){
+  SarjaController::destroy($name);
+});
+  
+  
 
   

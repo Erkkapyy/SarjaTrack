@@ -14,6 +14,15 @@
       Kint::dump($episodes);
       Kint::dump($sarjat);
       Kint::dump($hellsing);
+      $virhe = new Sarja(array(
+      'name' => 'okok',
+      'published' => '1.1.2019',
+      'genre' => 'ok',
+      'episodes' => 1001,
+      'description' => 'ok'
+      ));
+      $errors = $virhe->errors();
+      Kint::dump($errors);
     }
 
     public static function login(){

@@ -5,6 +5,7 @@ class Sarja extends BaseModel{
 
     public function __construct($attributes){
     parent::__construct($attributes);
+    $this->validators = array('validate_name', 'validate_episodes');
     }
 
 
@@ -74,7 +75,50 @@ class Sarja extends BaseModel{
     $query->execute(array('name' => $this->name, 'published' => $this->published, 'genre' => $this->genre, 'episodes' => $this->episodes, 'description' => $this->description));
     $row = $query->fetch();
     $this->name = $row['name'];
-  }
+    }
+    
+    public function validate_name(){
+    $errors = array();
+    if($this->name == '' || $this->name == null){
+      $errors[] = 'Nimi ei saa olla tyhjä!';
+    }
+    if(strlen($this->name) < 3){
+      $errors[] = 'Nimen pituuden tulee olla vähintään kolme merkkiä!';
+    }
+
+    return $errors;
+    }
+    
+        public function validate_episodes(){
+    $errors = array();
+    if($this->episodes == null){
+      $errors[] = 'Jaksomäärä tulee kertoa!';
+    }
+    if($this->episodes > 1000){
+      $errors[] = 'Liian suuri jaksomäärä!';
+    }
+    if(!is_numeric($this->episodes)){
+      $errors[] = 'Anna jaksomäärään numeroita';
+    }
+
+    return $errors;
+    }
+    
+    public function update(){
+    $query = DB::connection()->prepare('UPDATE sarja (name, published, genre, episodes, description) VALUES (:name, :published, :genre, :episodes, :description) RETURNING name');
+    $query->execute(array('name' => $this->name, 'published' => $this->published, 'genre' => $this->genre, 'episodes' => $this->episodes, 'description' => $this->description));
+    $row = $query->fetch();
+    $this->name = $row['name'];
+    }
+    
+    public function delete(){
+    $query = DB::connection()->prepare('DELETE FROM sarja WHERE name = :name');
+    $query->execute();
+    }
+    
+    
+    
+    
 
 
 
