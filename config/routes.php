@@ -1,7 +1,11 @@
 <?php
 
   $routes->get('/', function() {
-    HelloWorldController::login();
+    UserController::login();
+  });
+  
+  $routes->post('/', function(){
+  UserController::handle_login();
   });
 
   $routes->get('/hiekkalaatikko', function() {

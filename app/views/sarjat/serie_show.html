@@ -1,9 +1,10 @@
+{% import "macros/forms.html" as forms %}
 {% extends "base.html" %}
 {% block content %}
 {% for sarja in sarjat %}
   <h1>{{sarja.name}}</h1>
   <p>
-    <button class="btn btn-success">Lisää</button> <button class="btn btn-danger">Poista</button> <a href="{{base_path}}/edit" class="btn btn-default">Muokkaa</a>
+    <button class="btn btn-success">Lisää</button> {{forms.destroy_button("#{base_path}/sarjat/#{sarja.name}/destroy")}} <a href="{{base_path}}/sarjat/{{sarja.name}}/edit" class="btn btn-default">Muokkaa</a>
   </p>
   <ul>
     <li><strong>Julkaisupäivä:</strong> {{sarja.published}}</li>

@@ -1,22 +1,45 @@
 {% extends "base.html" %}
 {% block content %}
-  <h1>Muokkaa sarjaa Hellsing Ultimate</h1>
+  <h1>Muokkaa sarjaa {{attributes.name}}</h1>
+  
+  {% if errors %}
+    <div class="alert alert-danger">
+      <ul>
+        {% for error in errors %}
+          <li>{{error}}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  {% endif %}
 
-  <form>
+  <form method="post" action="{{base_path}}/sarjat/{{attributes.name}}/edit">
     <div class="form-group">
-      <label>Katsotut jaksot</label>
-      <input class="form-control" value="10/10" type="text">
+      <label>Nimi</label>
+      <input name="name" class="form-control" type="text" value="{{attributes.name}}">
     </div>
+
     <div class="form-group">
-      <label>Arvosana</label>
-      <input class="form-control" value="8.2/10" type="text">
+      <label>Julkaisupäivä</label>
+      <input name="published" class="form-control" type="text" value="{{attributes.published}}">
     </div>
+
     <div class="form-group">
-      <label>Status</label>
-      <input class="form-control" value="Katsottu" type="text">
+      <label>Genre</label>
+      <input name="genre" class="form-control" type="text" value="{{attributes.genre}}">
     </div>
+
     <div class="form-group">
-      <button type="submit" class="btn btn-primary">Tallenna</button>
+      <label>Jaksomäärä</label>
+      <input name="episodes" class="form-control" type="text" value="{{attributes.episodes}}">
+    </div>
+
+    <div class="form-group">
+      <label>Kuvaus</label>
+      <textarea name="description" class="form-control">{{attributes.description}}</textarea>
+    </div>
+
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Päivitä</button>
     </div>
   </form>
 {% endblock %}

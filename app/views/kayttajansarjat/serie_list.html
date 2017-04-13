@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
-  <h1>Käyttäjän Admin Sarjat</h1>
+{% if user_logged_in %}
+    <h1>Käyttäjän {{user_logged_in.name}} sarjat</h1>
 
   <p>
     <a href="{{base_path}}/sarjat/serie_add" class="btn btn-default">Lisää sarja kaikkien sarjojen listaan</a>
@@ -40,4 +41,5 @@
     {% endfor %}
     </tbody>
   </table>
+{% endif %}
 {% endblock %}

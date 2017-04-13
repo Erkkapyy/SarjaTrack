@@ -3,8 +3,10 @@
   class SarjaController extends BaseController{
 
     public static function serie_list() {
-      $kayttajansarjat = Kayttajansarja::all(1);
-      View::make('kayttajansarjat/serie_list.html', array('kayttajansarjat' => $kayttajansarjat));
+        if(get_user_logged_in) {
+            $kayttajansarjat = Kayttajansarja::all($user_id);
+            View::make('kayttajansarjat/serie_list.html', array('kayttajansarjat' => $kayttajansarjat));
+        }
     }
 
     public static function serie_show() {
@@ -46,7 +48,7 @@
     
     public static function edit($name){
     $sarja = Sarja::find($name);
-    View::make('/edit.html', array('attributes' => $sarja));
+    View::make('sarjat/serie_edit.html', array('attributes' => $sarja));
     }
     
     public static function update($name){
@@ -64,7 +66,7 @@
     $errors = $sarja->errors();
 
     if(count($errors) > 0){
-      View::make('game/edit.html', array('errors' => $errors, 'attributes' => $attributes));
+      View::make('sarjat/serie_edit.html', array('errors' => $errors, 'attributes' => $attributes));
     }else{
       $sarja->update();
       Redirect::to('/sarjat', array('message' => 'Sarjaa on muokattu onnistuneesti!'));

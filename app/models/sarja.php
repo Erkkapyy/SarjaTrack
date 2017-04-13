@@ -105,7 +105,7 @@ class Sarja extends BaseModel{
     }
     
     public function update(){
-    $query = DB::connection()->prepare('UPDATE sarja SET name = :name, genre = :genre, episodes = :episodes, description = :description WHERE name = :name');
+    $query = DB::connection()->prepare('UPDATE sarja SET (name, published, genre, episodes, description) = (:name, :published, :genre, :episodes, :description) RETURNING name');
     $query->execute(array('name' => $this->name, 'published' => $this->published, 'genre' => $this->genre, 'episodes' => $this->episodes, 'description' => $this->description));
     $row = $query->fetch();
     $this->name = $row['name'];
@@ -113,7 +113,7 @@ class Sarja extends BaseModel{
     
     public function destroy(){
     $query = DB::connection()->prepare('DELETE FROM sarja WHERE name = :name');
-    $query->execute();
+    $query->execute(array('name' => $this->name));
     }
     
     
