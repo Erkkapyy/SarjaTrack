@@ -12,4 +12,13 @@ Yleisiä linkkejä:
 
 ## Työn aihe
 
-Työn tarkoituksena on tarjota käyttäjälle mahdollisuus pitää kirjaa hänen katsomistaan sarjoista sekä jaksoista. Käyttäjä voi rekisteröityä, kirjautua sisään, valita valmiista ohjelmien listasta ohjelman ja merkata sen katsotuksi tai merkata kuinka monta jaksoa hän on kyseistä sarjaa katsonut. Käyttäjä näkee omat katsotut/katsottavat sarjat listana ja voi muokata niitä. 
+Työn tarkoituksena on tarjota käyttäjälle mahdollisuus pitää kirjaa hänen katsomistaan sarjoista sekä jaksoista. Käyttäjä voi rekisteröityä, kirjautua sisään, valita valmiista ohjelmien listasta ohjelman ja merkata sen katsotuksi tai merkata kuinka monta jaksoa hän on kyseistä sarjaa katsonut. Käyttäjä näkee omat katsotut/katsottavat sarjat listana ja voi muokata niitä.
+
+Login käyttäjätunnukset:
+
+1. 
+- username: admin 
+- password: admin
+2. 
+- username: pleb 
+- password: pleb
