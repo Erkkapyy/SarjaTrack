@@ -1,5 +1,9 @@
 <?php
 
+  function check_logged_in(){
+  BaseController::check_logged_in();
+  }
+
   $routes->get('/', function() {
     UserController::login();
   });
@@ -20,7 +24,7 @@
     SarjaController::edit($name);
   });
 
-  $routes->get('/kayttajansarjat', function() {
+  $routes->get('/kayttajansarjat', 'check_logged_in', function() {
     SarjaController::serie_list();
   });
 
@@ -52,6 +56,12 @@
 $routes->post('/sarjat/:name/destroy', function($name){
   SarjaController::destroy($name);
 });
+
+$routes->post('/logout', function(){
+  UserController::logout();
+});
+
+
   
   
 
