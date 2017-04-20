@@ -3,7 +3,9 @@
   class SarjaController extends BaseController{
 
     public static function serie_list() {
-        if(get_user_logged_in) {
+        $user = BaseController::get_user_logged_in();
+        if($user) {
+            $user_id = $user->id;
             $kayttajansarjat = Kayttajansarja::all($user_id);
             View::make('kayttajansarjat/serie_list.html', array('kayttajansarjat' => $kayttajansarjat));
         }

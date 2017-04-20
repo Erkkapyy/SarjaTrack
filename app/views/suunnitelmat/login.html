@@ -13,20 +13,27 @@
   </style>
   </head>
   <h1>Sarja Track</h1>
+  
+  {% if errors %}
+    <div class="alert alert-danger">
+      <ul>
+        {% for error in errors %}
+          <li>{{error}}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  {% endif %}
 
   <h3>Kirjaudu sisään</h3>
-  <!-- Kaikki lomakkeen elementit form-tagin sisään -->
-  <form method="post" action="{{base_path}}/kayttajansarjat">
-    <!-- Tekstikenttä käyttäjätunnukselle -->
+  <form method="post" action="{{base_path}}">
     <div class="form-group">
       <label>Käyttäjätunnus</label>
-      <input class="form-control" type="text">
+      <input class="form-control" type="text" name="username" value="{{username}}">
     </div>
 
-    <!-- Salasanakenttä salasanalle -->
     <div class="form-group">
       <label>Salasana</label>
-      <input class="form-control" type="password">
+      <input class="form-control" type="password" name="password" value="{{password}}">
     </div>
 
     <button type="submit" class="btn btn-primary">Kirjaudu sisään</button>
