@@ -8,7 +8,7 @@ Yleisiä linkkejä:
 * [Linkki sarjojen listaussivuun](http://pyykonee.users.cs.helsinki.fi/tsoha/sarjat)
 * [Linkki sarjan lisäämiseen (kaikkien sarjojen listaan)](http://pyykonee.users.cs.helsinki.fi/tsoha/sarjat/serie_add)
 * [Linkki esittelysivuun (ei ole vielä sarjakohtainen, find metodilla on arvo '%breaking bad%')](http://pyykonee.users.cs.helsinki.fi/tsoha/show)
-* [Linkki muokkaussivuun](http://pyykonee.users.cs.helsinki.fi/tsoha/edit)
+* [Linkki muokkaussivuun](http://pyykonee.users.cs.helsinki.fi/tsoha/sarjat/testi/edit)
 
 ## Työn aihe
 
