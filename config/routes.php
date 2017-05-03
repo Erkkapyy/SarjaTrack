@@ -20,7 +20,7 @@
     SarjaController::serie_details();
   });
 
-  $routes->get('sarjat/:name/edit', function($name) {
+  $routes->get('/sarjat/:name/edit', function($name) {
     SarjaController::edit($name);
   });
 
@@ -59,6 +59,14 @@ $routes->post('/sarjat/:name/destroy', function($name){
 
 $routes->post('/logout', function(){
   UserController::logout();
+});
+
+$routes->get('/kayttajansarjat/:sarja_name/edit', function($sarja_name) {
+    KayttajansarjaController::edit($sarja_name);
+});
+
+$routes->post('/kayttajansarjat/:sarja_name/edit', function($sarja_name) {
+    KayttajansarjaController::update($sarja_name);
 });
 
 

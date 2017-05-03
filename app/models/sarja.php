@@ -48,6 +48,28 @@ class Sarja extends BaseModel{
 
     return null;
     }
+    
+    public static function findSpecific($name){
+    
+    $query = DB::connection()->prepare('SELECT * FROM sarja WHERE name = :name');
+    $query->bindValue(':name', $name, PDO::PARAM_STR);
+    $query->execute(array('name' => $name));
+    $row = $query->fetch();
+
+    if($row){
+      $sarja = new Sarja(array(
+        'name' => $row['name'],
+        'published' => $row['published'],
+        'genre' => $row['genre'],
+        'episodes' => $row['episodes'],
+        'description' => $row['description']
+      ));
+
+      return $sarja;
+    }
+
+    return null;
+    }
 
     public static function findEpisodes($episodes){
     
@@ -105,7 +127,7 @@ class Sarja extends BaseModel{
     }
     
     public function update(){
-    $query = DB::connection()->prepare('UPDATE sarja SET (name, published, genre, episodes, description) = (:name, :published, :genre, :episodes, :description) RETURNING name');
+    $query = DB::connection()->prepare('UPDATE sarja SET published = :published, genre = :genre, episodes = :episodes, description = :description WHERE name = :name RETURNING name');
     $query->execute(array('name' => $this->name, 'published' => $this->published, 'genre' => $this->genre, 'episodes' => $this->episodes, 'description' => $this->description));
     $row = $query->fetch();
     $this->name = $row['name'];

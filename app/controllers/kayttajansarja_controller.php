@@ -1,6 +1,6 @@
 <?php
 
-  class SarjaController extends BaseController{
+  class KayttajansarjaController extends BaseController{
 
     public static function serie_list() {
         $user = BaseController::get_user_logged_in();
@@ -48,30 +48,37 @@
       View::make('/sarjat/serie_add.html');
     }
     
-    public static function edit($name){
-    $sarja = Sarja::findSpecific($name);
-    View::make('sarjat/serie_edit.html', array('attributes' => $sarja));
+    public static function edit($sarja_name){
+        $user = BaseController::get_user_logged_in();
+        if($user) {
+            $user_id = $user->id;
+        $kayttajansarja = Kayttajansarja::findSpecific($user_id, $sarja_name);
+        View::make('kayttajansarjat/kayttajansarja_edit.html', array('attributes' => $kayttajansarja));
+        }
     }
     
-    public static function update($name){
+    
+    
+    public static function update($sarja_name){
     $params = $_POST;
 
     $attributes = array(
-      'name' => $params['name'],
-      'published' => $params['published'],
-      'genre' => $params['genre'],
-      'episodes' => $params['episodes'],
-      'description' => $params['description']
+      'kayttaja_id' => $params['kayttaja_id'],
+      'sarja_name' => $params['sarja_name'],
+      'episodesseen' => $params['episodesseen'],
+      'grade' => $params['grade'],
+      'finished' => $params['finished'],
+      'added' => $params['added']
     );
 
-    $sarja = new Sarja($attributes);
-    $errors = $sarja->errors();
+    $kayttajansarja = new Kayttajansarja($attributes);
+    $errors = $kayttajansarja->errors();
 
     if(count($errors) > 0){
-      View::make('sarjat/serie_edit.html', array('errors' => $errors, 'attributes' => $attributes));
+      View::make('sarjat/kayttajansarja_edit.html', array('errors' => $errors, 'attributes' => $attributes));
     }else{
-      $sarja->update();
-      Redirect::to('/sarjat', array('message' => 'Sarjaa on muokattu onnistuneesti!'));
+      $kayttajansarja->update();
+      Redirect::to('/kayttajansarjat', array('message' => 'Sarjaa on muokattu onnistuneesti!'));
     }
     }
     
@@ -92,3 +99,4 @@
 
 
   }
+
