@@ -25,7 +25,7 @@
       View::make('sarjat/serie_show.html', array('sarjat' => $sarjat));
     }
 
-     public static function store(){
+    public static function store(){
     $params = $_POST;
     $attributes = array(
       'name' => $params['name'],

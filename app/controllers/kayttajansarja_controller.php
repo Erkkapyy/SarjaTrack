@@ -25,24 +25,7 @@
       View::make('sarjat/serie_show.html', array('sarjat' => $sarjat));
     }
 
-     public static function store(){
-    $params = $_POST;
-    $attributes = array(
-      'name' => $params['name'],
-      'published' => $params['published'],
-      'genre' => $params['genre'],
-      'episodes' => $params['episodes'],
-      'description' => $params['description']
-    );
-    $sarja = new Sarja($attributes);
-    $errors = $sarja->errors();
-    if(count($errors) == 0) {
-        $sarja->save();
-        Redirect::to('/sarjat', array('message' => 'Sarja on lisätty kaikkien sarjojen listaan.'));
-    } else {
-        View::make('/sarjat/serie_add.html', array('errors' => $errors, 'attributes' => $attributes));
-    }
-    }
+    
 
     public static function create() {
       View::make('/sarjat/serie_add.html');
@@ -86,15 +69,41 @@
     $sarja = new Sarja(array('name' => $name));
     $sarja->destroy();
     Redirect::to('/sarjat', array('message' => 'Sarja on poistettu onnistuneesti!'));
-  }
+    }
+
+    public static function serie_add($name) {
+        $user = BaseController::get_user_logged_in();
+        if($user) {
+            $user_id = $user->id;
+        $sarja = Sarja::findSpecific($name);
+        View::make('/kayttajansarjat/kayttajansarja_add.html', array('attributes' => $sarja, $user_id));
+        }
+    }
+    
+    
+    
+    public static function store(){
+    $params = $_POST;
+    $attributes = array(
+      'kayttaja_id' => $params['kayttaja_id'],
+      'sarja_name' => $params['sarja_name'],
+      'episodesseen' => $params['episodesseen'],
+      'grade' => $params['grade'],
+      'finished' => $params['finished'],
+      'added' => $params['added']
+    );
+    $kayttajansarja = new Kayttajansarja($attributes);
+    $errors = $kayttajansarja->errors();
+    if(count($errors) == 0) {
+        $kayttajansarja->save();
+        Redirect::to('/kayttajansarjat', array('message' => 'Sarja on lisätty listaasi'));
+    } else {
+        View::make('/kayttajansarjat/kayttajansarja_add.html', array('errors' => $errors, 'attributes' => $attributes));
+    }
+    }
+    
 
 
-
-    //public static function serie_search($name) {
-     // $name = '%' . $name. '%';
-     // $name = Sarja::find($name);
-     // View::make('sarjat/serie_search.html', array('names' => $name));
-    //}
 
 
 

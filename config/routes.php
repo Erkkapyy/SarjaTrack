@@ -36,12 +36,11 @@
     SarjaController::serie_search();
   });
 
-  $routes->get('/search/:name', function($name) {
-   $searched = '%' . $name . '%';
-   SarjaController::serie_search($searched);
+  $routes->post('/search', function() {
+    SarjaController::serie_search();
   });
 
-  $routes->post('/sarjat', function() {
+  $routes->post('/sarjat/serie_add', function() {
     SarjaController::store();
   });
 
@@ -69,6 +68,13 @@ $routes->post('/kayttajansarjat/:sarja_name/edit', function($sarja_name) {
     KayttajansarjaController::update($sarja_name);
 });
 
+$routes->get('/sarjat/:name/add', function($name) {
+    KayttajansarjaController::serie_add($name);
+});
+
+$routes->post('/sarjat/:name/add', function($name) {
+    KayttajansarjaController::store($name);
+});
 
   
   

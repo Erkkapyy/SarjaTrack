@@ -84,6 +84,13 @@ class Kayttajansarja extends BaseModel{
 
     return $errors;
     }
+    
+    public function save(){
+    $query = DB::connection()->prepare('INSERT INTO kayttajansarja (kayttaja_id, sarja_name, episodesseen, grade, finished, added) VALUES (:kayttaja_id, :sarja_name, :episodesseen, :grade, :finished, :added) RETURNING sarja_name');
+    $query->execute(array('kayttaja_id' => $this->kayttaja_id, 'sarja_name' => $this->sarja_name, 'episodesseen' => $this->episodesseen, 'grade' => $this->grade, 'finished' => $this->finished, 'added' => $this->added));
+    $row = $query->fetch();
+    $this->sarja_name = $row['sarja_name'];
+    }
 
     
   }
