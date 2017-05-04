@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
+{% if user_logged_in %}
 <h1>Lisää sarja kaikkien sarjojen listaan</h1>
 
 {% if errors %}
@@ -42,4 +43,5 @@
         <button type="submit" class="btn btn-primary">Lisää</button>
     </div>
 </form>
+{% endif %}
 {% endblock %}
