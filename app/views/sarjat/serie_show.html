@@ -2,17 +2,17 @@
 {% extends "base.html" %}
 {% block content %}
 {% for sarja in sarjat %}
-  <h1>{{sarja.name}}</h1>
-  <p>
+<h1>{{sarja.name}}</h1>
+<p>
     <a href="{{base_path}}/sarjat/{{sarja.name}}/add" class="btn btn-success">Lisää</a> {{forms.destroy_button("#{base_path}/sarjat/#{sarja.name}/destroy")}} <a href="{{base_path}}/sarjat/{{sarja.name}}/edit" class="btn btn-default">Muokkaa</a>
-  </p>
-  <ul>
+</p>
+<ul>
     <li><strong>Julkaisupäivä:</strong> {{sarja.published}}</li>
     <li><strong>Genre:</strong> {{sarja.genre}}</li>
     <li><strong>Jaksojen määrä:</strong> {{sarja.episodes}}</li>
-  </ul>
-  <p>
+</ul>
+<p>
     {{sarja.description}}
-  </p>
+</p>
 {% endfor %}
 {% endblock %}

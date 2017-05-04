@@ -1,63 +1,55 @@
 <?php
 
-  function check_logged_in(){
-  BaseController::check_logged_in();
-  }
+function check_logged_in() {
+    BaseController::check_logged_in();
+}
 
-  $routes->get('/', function() {
+$routes->get('/', function() {
     UserController::login();
-  });
-  
-  $routes->post('/', function(){
-  UserController::handle_login();
-  });
+});
 
-  $routes->get('/hiekkalaatikko', function() {
+$routes->post('/', function() {
+    UserController::handle_login();
+});
+
+$routes->get('/hiekkalaatikko', function() {
     HelloWorldController::sandbox();
-  });
+});
 
-  $routes->get('/show/:name', function($name) {
+$routes->get('/show/:name', function($name) {
     SarjaController::serie_details($name);
-  });
+});
 
-  $routes->get('/sarjat/:name/edit', function($name) {
+$routes->get('/sarjat/:name/edit', function($name) {
     SarjaController::edit($name);
-  });
+});
 
-  $routes->get('/kayttajansarjat', 'check_logged_in', function() {
+$routes->get('/kayttajansarjat', 'check_logged_in', function() {
     SarjaController::serie_list();
-  });
+});
 
-  $routes->get('/sarjat', function() {
+$routes->get('/sarjat', function() {
     SarjaController::serie_show();
-  });
+});
 
-  $routes->get('/search', function() {
-    SarjaController::serie_search();
-  });
-
-  $routes->post('/search', function() {
-    SarjaController::serie_search();
-  });
-
-  $routes->post('/sarjat/serie_add', function() {
+$routes->post('/sarjat/serie_add', function() {
     SarjaController::store();
-  });
+});
 
-  $routes->get('/sarjat/serie_add', function() {
+$routes->get('/sarjat/serie_add', function() {
     SarjaController::create();
-  });
-  
-  $routes->post('/sarjat/:name/edit', function($name){
-  SarjaController::update($name);
 });
 
-$routes->post('/sarjat/:name/destroy', function($name){
-  SarjaController::destroy($name);
+$routes->post('/sarjat/:name/edit', function($name) {
+    SarjaController::update($name);
 });
 
-$routes->post('/logout', function(){
-  UserController::logout();
+$routes->post('/sarjat/:name/destroy', function($name) {
+    SarjaController::destroy($name);
+});
+
+$routes->post('/logout', function() {
+    UserController::logout();
 });
 
 $routes->get('/kayttajansarjat/:sarja_name/edit', function($sarja_name) {
@@ -79,7 +71,7 @@ $routes->post('/sarjat/:name/add', function($name) {
 $routes->post('/kayttajansarjat/:kayttaja_id/:sarja_name/destroy', function($kayttaja_id, $sarja_name) {
     KayttajansarjaController::destroy($kayttaja_id, $sarja_name);
 });
-  
-  
 
-  
+
+
+

@@ -2,45 +2,45 @@
 {% extends "base.html" %}
 {% block content %}
 {% if user_logged_in %}
-    <h1>Käyttäjän {{user_logged_in.name}} sarjat</h1>
+<h1>Käyttäjän {{user_logged_in.username}} sarjat</h1>
 
-  <p>
+<p>
     <a href="{{base_path}}/sarjat/serie_add" class="btn btn-default">Lisää sarja kaikkien sarjojen listaan</a>
-  </p>
-  <p>
-    <a href="{{base_path}}/search" class="btn btn-success">Lisää sarja omaan listaan</a>
-  </p>
+</p>
+<p>
+    <a href="{{base_path}}/sarjat" class="btn btn-success">Selaa sarjoja</a>
+</p>
 
-  <table class="table table-striped table-bordered">
+<table class="table table-striped table-bordered">
     <thead>
-      <tr>
-        <th>Nimi</th>
-        <th>Katsotut jaksot</th>
-        <th>Arvosana</th>
-        <th>Status</th>
-        <th>Lisäyspäivä</th>
-        <th></th>
-      </tr>
+        <tr>
+            <th>Nimi</th>
+            <th>Katsotut jaksot</th>
+            <th>Arvosana</th>
+            <th>Status</th>
+            <th>Lisäyspäivä</th>
+            <th></th>
+        </tr>
     </thead>
 
     <tbody>
-    {% for kayttajansarja in kayttajansarjat %}
-      <tr>
-        <td><a href="{{base_path}}/show/{{kayttajansarja.sarja_name}}">{{kayttajansarja.sarja_name}}</td>
-        <td>{{kayttajansarja.episodesseen}}/10</td>
-        <td>{{kayttajansarja.grade}}/10</td>
-        <td>
-          {% if kayttajansarja.finished %}
-            <label class="label label-success">katsottu
-          {% else %}
-            <label class="label label-danger">kesken
-          {% endif %}
-        </td>
-        <td>{{kayttajansarja.added}}</td>
-        <th><a href="{{base_path}}/kayttajansarjat/{{kayttajansarja.sarja_name}}/edit" class="btn btn-default">Muokkaa</a> {{forms.destroy_button("#{base_path}/kayttajansarjat/#{kayttajansarja.kayttaja_id}/#{kayttajansarja.sarja_name}/destroy")}}</th>
-      </tr>
-    {% endfor %}
+        {% for kayttajansarja in kayttajansarjat %}
+        <tr>
+            <td><a href="{{base_path}}/show/{{kayttajansarja.sarja_name}}">{{kayttajansarja.sarja_name}}</td>
+            <td>{{kayttajansarja.episodesseen}}/10</td>
+            <td>{{kayttajansarja.grade}}/10</td>
+            <td>
+            {% if kayttajansarja.finished %}
+                <label class="label label-success">katsottu
+            {% else %}
+                <label class="label label-danger">kesken
+            {% endif %}
+            </td>
+            <td>{{kayttajansarja.added}}</td>
+            <th><a href="{{base_path}}/kayttajansarjat/{{kayttajansarja.sarja_name}}/edit" class="btn btn-default">Muokkaa</a> {{forms.destroy_button("#{base_path}/kayttajansarjat/#{kayttajansarja.kayttaja_id}/#{kayttajansarja.sarja_name}/destroy")}}</th>
+        </tr>
+        {% endfor %}
     </tbody>
-  </table>
+</table>
 {% endif %}
 {% endblock %}

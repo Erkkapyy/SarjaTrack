@@ -1,46 +1,41 @@
 {% extends "base.html" %}
 {% block content %}
-  <head>
-  <style>
-  h1 {
-    color: Crimson;
-    text-align: center;
-  }
+<head>
+    <style>
+        h1 {
+            color: Crimson;
+            text-align: center;
+        }
 
-  p {
-    font-size: 20px;
-  }
-  </style>
-  </head>
-  <h1>Sarja Track</h1>
-  
-  {% if errors %}
-    <div class="alert alert-danger">
-      <ul>
+        p {
+            font-size: 20px;
+        }
+    </style>
+</head>
+<h1>Sarja Track</h1>
+
+{% if errors %}
+<div class="alert alert-danger">
+    <ul>
         {% for error in errors %}
-          <li>{{error}}</li>
+        <li>{{error}}</li>
         {% endfor %}
-      </ul>
-    </div>
-  {% endif %}
+    </ul>
+</div>
+{% endif %}
 
-  <h3>Kirjaudu sisään</h3>
-  <form method="post" action="{{base_path}}/">
+<h3>Kirjaudu sisään</h3>
+<form method="post" action="{{base_path}}/">
     <div class="form-group">
-      <label>Käyttäjätunnus</label>
-      <input class="form-control" type="text" name="username" value="{{username}}">
+        <label>Käyttäjätunnus</label>
+        <input class="form-control" type="text" name="username" value="{{username}}">
     </div>
 
     <div class="form-group">
-      <label>Salasana</label>
-      <input class="form-control" type="password" name="password" value="{{password}}">
+        <label>Salasana</label>
+        <input class="form-control" type="password" name="password" value="{{password}}">
     </div>
 
     <button type="submit" class="btn btn-primary">Kirjaudu sisään</button>
-  </form>
-
-  <p>
-  Ei käyttäjää?
-  </p>
-  <button type="submit" class="btn btn-default">Rekisteröidy</button>
+</form>
 {% endblock %}

@@ -49,13 +49,13 @@ class Sarja extends BaseModel{
     return null;
     }
     
-    public static function findSpecific($name){
+    public static function findSpecificAsArray($name){
     
     $query = DB::connection()->prepare('SELECT * FROM sarja WHERE name = :name');
     $query->bindValue(':name', $name, PDO::PARAM_STR);
     $query->execute(array('name' => $name));
     $row = $query->fetch();
-
+    $sarjat = array();
     if($row){
       $sarja = new Sarja(array(
         'name' => $row['name'],
@@ -64,7 +64,27 @@ class Sarja extends BaseModel{
         'episodes' => $row['episodes'],
         'description' => $row['description']
       ));
+      $sarjat[] = $sarja;
+      return $sarjat;
+    }
 
+    return null;
+    }
+    
+    public static function findSpecific($name){
+    
+    $query = DB::connection()->prepare('SELECT * FROM sarja WHERE name = :name');
+    $query->bindValue(':name', $name, PDO::PARAM_STR);
+    $query->execute(array('name' => $name));
+    $row = $query->fetch();
+    if($row){
+      $sarja = new Sarja(array(
+        'name' => $row['name'],
+        'published' => $row['published'],
+        'genre' => $row['genre'],
+        'episodes' => $row['episodes'],
+        'description' => $row['description']
+      ));
       return $sarja;
     }
 

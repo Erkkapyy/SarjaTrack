@@ -16,7 +16,7 @@ CREATE TABLE kayttajansarja(
   kayttaja_id INTEGER REFERENCES kayttaja(id),
   sarja_name varchar(50) REFERENCES sarja(name),
   episodesseen INT NOT NULL,
-  grade DECIMAL(2,1) NOT NULL,
+  grade DECIMAL(3,1) NOT NULL,
   finished boolean NOT NULL,
   added DATE
 );
