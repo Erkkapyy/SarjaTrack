@@ -20,9 +20,9 @@
       View::make('sarjat/serie_search.html');
     }
 
-    public static function serie_details() {
-      $sarjat = Sarja::find('%breaking bad%');
-      View::make('sarjat/serie_show.html', array('sarjat' => $sarjat));
+    public static function serie_details($name) {
+      $sarja = Sarja::findSpecific($name);
+      View::make('sarjat/serie_show.html', array('sarjat' => $sarja));
     }
 
     public static function store(){
@@ -83,11 +83,7 @@
 
 
 
-    //public static function serie_search($name) {
-     // $name = '%' . $name. '%';
-     // $name = Sarja::find($name);
-     // View::make('sarjat/serie_search.html', array('names' => $name));
-    //}
+    
 
 
 

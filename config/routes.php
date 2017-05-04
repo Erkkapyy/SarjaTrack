@@ -16,8 +16,8 @@
     HelloWorldController::sandbox();
   });
 
-  $routes->get('/show', function() {
-    SarjaController::serie_details();
+  $routes->get('/show/:name', function($name) {
+    SarjaController::serie_details($name);
   });
 
   $routes->get('/sarjat/:name/edit', function($name) {
@@ -76,6 +76,9 @@ $routes->post('/sarjat/:name/add', function($name) {
     KayttajansarjaController::store($name);
 });
 
+$routes->post('/kayttajansarjat/:kayttaja_id/:sarja_name/destroy', function($kayttaja_id, $sarja_name) {
+    KayttajansarjaController::destroy($kayttaja_id, $sarja_name);
+});
   
   
 

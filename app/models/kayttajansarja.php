@@ -91,6 +91,11 @@ class Kayttajansarja extends BaseModel{
     $row = $query->fetch();
     $this->sarja_name = $row['sarja_name'];
     }
+    
+    public function destroy(){
+    $query = DB::connection()->prepare('DELETE FROM kayttajansarja WHERE kayttaja_id = :kayttaja_id AND sarja_name = :sarja_name');
+    $query->execute(array('kayttaja_id' => $this->kayttaja_id, 'sarja_name' => $this->sarja_name));
+    }
 
     
   }

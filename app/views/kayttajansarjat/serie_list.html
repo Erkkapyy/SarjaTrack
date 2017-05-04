@@ -1,3 +1,4 @@
+{% import "macros/forms.html" as forms %}
 {% extends "base.html" %}
 {% block content %}
 {% if user_logged_in %}
@@ -25,7 +26,7 @@
     <tbody>
     {% for kayttajansarja in kayttajansarjat %}
       <tr>
-        <td><a href="{{base_path}}/show">{{kayttajansarja.sarja_name}}</td>
+        <td><a href="{{base_path}}/show/{{kayttajansarja.sarja_name}}">{{kayttajansarja.sarja_name}}</td>
         <td>{{kayttajansarja.episodesseen}}/10</td>
         <td>{{kayttajansarja.grade}}/10</td>
         <td>
@@ -36,7 +37,7 @@
           {% endif %}
         </td>
         <td>{{kayttajansarja.added}}</td>
-        <th><a href="{{base_path}}/kayttajansarjat/{{kayttajansarja.sarja_name}}/edit" class="btn btn-default">Muokkaa</a></th>
+        <th><a href="{{base_path}}/kayttajansarjat/{{kayttajansarja.sarja_name}}/edit" class="btn btn-default">Muokkaa</a> {{forms.destroy_button("#{base_path}/kayttajansarjat/#{kayttajansarja.kayttaja_id}/#{kayttajansarja.sarja_name}/destroy")}}</th>
       </tr>
     {% endfor %}
     </tbody>

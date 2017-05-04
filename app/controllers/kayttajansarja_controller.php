@@ -65,10 +65,10 @@
     }
     }
     
-    public static function destroy($name){
-    $sarja = new Sarja(array('name' => $name));
-    $sarja->destroy();
-    Redirect::to('/sarjat', array('message' => 'Sarja on poistettu onnistuneesti!'));
+    public static function destroy($kayttaja_id, $sarja_name){
+    $kayttajansarja = new Kayttajansarja(array('kayttaja_id' => $kayttaja_id, 'sarja_name' => $sarja_name));
+    $kayttajansarja->destroy();
+    Redirect::to('/kayttajansarjat', array('message' => 'Sarja on poistettu onnistuneesti!'));
     }
 
     public static function serie_add($name) {
